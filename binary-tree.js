@@ -1,3 +1,5 @@
+"use strict";
+
 /** BinaryTreeNode: node for a general tree. */
 
 class BinaryTreeNode {
@@ -17,14 +19,67 @@ class BinaryTree {
    * the length of the shortest path from the root to a leaf. */
 
   minDepth(node = this.root) {
+    if (!node) return 0;
+    let countList = [];
+    let count = 0;
 
+    let toVisitStack = [node];
+
+    while (toVisitStack.length) {
+      count++;
+      let current = toVisitStack.pop();
+
+      const rightChild = current.right;
+      if (rightChild) {
+        toVisitStack.push(rightChild);
+      } else {
+        countList.push(count);
+      }
+
+      const leftChild = current.left;
+      if (leftChild) {
+        toVisitStack.push(leftChild);
+      } else {
+        countList.push(count);
+      }
+
+    }
+
+    return Math.min(...countList);
   }
+
 
   /** maxDepth(): return the maximum depth of the tree -- that is,
    * the length of the longest path from the root to a leaf. */
 
   maxDepth(node = this.root) {
+    if (!node) return 0;
+    let countList = [];
+    let count = 0;
 
+    let toVisitStack = [node];
+
+    while (toVisitStack.length) {
+      count++;
+      let current = toVisitStack.pop();
+
+      const rightChild = current.right;
+      if (rightChild) {
+        toVisitStack.push(rightChild);
+      } else {
+        countList.push(count);
+      }
+
+      const leftChild = current.left;
+      if (leftChild) {
+        toVisitStack.push(leftChild);
+      } else {
+        countList.push(count);
+      }
+
+    }
+
+    return Math.max(...countList);
   }
 
   /** nextLarger(lowerBound): return the smallest value in the tree
