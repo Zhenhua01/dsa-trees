@@ -15,9 +15,10 @@ class Tree {
   }
 
   /** sumValues(): add up all of the values in the tree. */
-
+  // can do recursively
   sumValues() {
     if (!this.root) return 0;
+    
     let total = 0;
     let toVisitStack = [this.root];
 
@@ -34,9 +35,10 @@ class Tree {
   }
 
   /** countEvens(): count all of the nodes in the tree with even values. */
-
+  // can do recursively
   countEvens() {
     if (!this.root) return 0;
+
     let count = 0;
     let toVisitStack = [this.root];
 
@@ -54,9 +56,10 @@ class Tree {
 
   /** numGreater(lowerBound): return a count of the number of nodes
    * whose value is greater than lowerBound. */
-
+  // can do recursively
   numGreater(lowerBound) {
     if (!this.root) return 0;
+
     let count = 0;
     let toVisitStack = [this.root];
 
